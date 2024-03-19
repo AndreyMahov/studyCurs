@@ -23,4 +23,9 @@ public class Wolf extends Animal implements MakeSound, TakeBreak, BeWild {
     public void sound() {
         System.out.println("woff woof");
     }
+
+    @Override
+    public void wildModeOn() {
+        System.out.println("start be wild");
+    }
 }
