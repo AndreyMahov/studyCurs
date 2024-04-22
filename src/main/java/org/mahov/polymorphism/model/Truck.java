@@ -1,6 +1,6 @@
 package org.mahov.polymorphism.model;
 
-public class Truck extends Car {
+public class Truck extends Car implements Ride{
     public Truck(int tankCapacity, int passengers, int maxSpeed) {
         super(tankCapacity, passengers, maxSpeed);
     }
@@ -33,5 +33,10 @@ public class Truck extends Car {
     @Override
     public void setMaxSpeed(int maxSpeed) {
         super.setMaxSpeed(maxSpeed);
+    }
+
+    @Override
+    public void startRide() {
+        System.out.println("Truc start ride");
     }
 }

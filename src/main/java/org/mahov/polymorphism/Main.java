@@ -8,11 +8,22 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        List<Car> carList = new ArrayList<>();
-        carList.add(new SuperCar(25,0,250));
-        carList.add(new Bus(150, 50, 100));
-        carList.add(new Truck(250, 3,150));
 
+        SuperCar superCar = new SuperCar(25,0,250);
+        Bus bus = new Bus(150, 50, 100);
+        Truck truck = new Truck(250, 3,150);
+
+        List<Ride> carList = new ArrayList<>();
+        carList.add(superCar);
+        carList.add(bus);
+        carList.add(truck);
+
+//        // динамическое связывание
+//        carList.forEach(Ride::startRide);
+
+        // статичное связывание
+        superCar.enableTurbo(60);
+        superCar.enableTurbo(25);
 
     }
 }

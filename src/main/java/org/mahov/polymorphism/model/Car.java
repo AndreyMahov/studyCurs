@@ -1,9 +1,9 @@
 package org.mahov.polymorphism.model;
 
 public abstract class Car {
+
     private int tankCapacity;
     private int passengers;
-
     private int maxSpeed;
 
     public Car(int tankCapacity, int passengers, int maxSpeed) {
