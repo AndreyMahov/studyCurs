@@ -1,7 +1,7 @@
 package org.mahov.streamApi;
 
 public enum BrokerageFirm {
-    GOLDEN_SOCK("golden sock"),
+    GOLDEN_SOCKS("golden socks"),
     WELL_FED_GOOSE("well-fed goose"),
     lION_GATE("lion gate");
 
