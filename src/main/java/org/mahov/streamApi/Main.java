@@ -35,11 +35,6 @@ public class Main {
         Arrays.stream(array).close();
         // и так далее...
 
-        // нельзя использовать один стрим два раза
-        stream.close();
-        stream
-        .map(item -> item + 5)
-                .forEach(System.out::println);
 
         // ленивый стрим
         stream
@@ -47,6 +42,11 @@ public class Main {
 
         integers.forEach(System.out::println);
 
+        // нельзя использовать один стрим два раза
+        stream.close();
+        stream
+                .map(item -> item + 5)
+                .forEach(System.out::println);
 
         /* часто используемые функциональные интерфейсы
         * Predicate<T>
