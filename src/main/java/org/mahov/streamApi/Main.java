@@ -40,13 +40,14 @@ public class Main {
         stream
         .map(item -> item - 5);
 
+        System.out.println("Вывод в консоль");
         integers.forEach(System.out::println);
 
         // нельзя использовать один стрим два раза
         stream.close();
-        stream
-                .map(item -> item + 5)
-                .forEach(System.out::println);
+//        stream
+//                .map(item -> item + 5)
+//                .forEach(System.out::println);
 
         /* часто используемые функциональные интерфейсы
         * Predicate<T>
