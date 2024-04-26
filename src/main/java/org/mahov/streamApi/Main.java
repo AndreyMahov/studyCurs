@@ -1,9 +1,6 @@
 package org.mahov.streamApi;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -45,9 +42,8 @@ public class Main {
 
         // нельзя использовать один стрим два раза
         stream.close();
-        stream
-                .map(item -> item + 5)
-                .forEach(System.out::println);
+//        stream
+//            .forEach(item -> System.out.println(item + 5));
 
 
 
@@ -65,10 +61,19 @@ public class Main {
         List<Broker> brokerList = createBrokerList();
         List<StockBlock> stockBlockList = getStockBlockList();
 // 1) Найти все пакеты акций за 2012 год и отсортировать их по сумме в порядке возрастания
-
+        stockBlockList.stream()
+                .filter(stockBlock -> stockBlock.getPurchaseYear() == 2012)
+                .sorted(Comparator.comparing(StockBlock::getAmount))
+                .forEach(item -> System.out.println(item.getAmount() + " " + item.getPurchaseYear()));
 // 2) Вывести список не повторяющихся контор, в которых работаю брокеры
-
+        brokerList.stream()
+                .map(Broker::getBrokerageFirm)
+                .distinct()
+                .forEach(System.out::println);
 // 3) Найти всех брокеров из конторы Golden socks
+        brokerList.stream()
+                .filter(broker -> BrokerageFirm.GOLDEN_SOCKS.equals(broker.getBrokerageFirm()))
+                .forEach(broker -> System.out.println(broker.getName() + " " + broker.getBrokerageFirm()));
 
 
         /**
